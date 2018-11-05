@@ -1,9 +1,6 @@
 from forms import LoginForm, SetpointForm, AwayForm
 from flask import Flask, request, session, redirect, url_for, render_template, flash
 from rest_call import RestServiceCall
-from datetime import datetime
-from dateutil import tz
-import time
 import logging
 
 logger = logging.getLogger()
