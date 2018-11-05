@@ -1,0 +1,8 @@
+{
+   "endpoint":"a14bu5lk0ekf24.iot.us-east-1.amazonaws.com",
+   "rootCAPath":"./certs/aws-iot-rootCA.crt",
+   "certificatePath":"./certs/4984da2750-certificate.pem.crt",
+   "privateKeyPath":"./certs/4984da2750-private.pem.key",
+   "thingName":"Thermostat_pi",
+   "clientId":"Thermostat_pi"
+}

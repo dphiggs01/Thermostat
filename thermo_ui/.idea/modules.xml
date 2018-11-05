@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../thermo_lambda/.idea/thermo-lambda.iml" filepath="$PROJECT_DIR$/../thermo_lambda/.idea/thermo-lambda.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../thermo-lambda/.idea/thermo-lambda.iml" filepath="$PROJECT_DIR$/../thermo-lambda/.idea/thermo-lambda.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../thermo_pi/.idea/thermo-pi.iml" filepath="$PROJECT_DIR$/../thermo_pi/.idea/thermo-pi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../thermo-pi-mqtt/.idea/thermo-pi-mqtt.iml" filepath="$PROJECT_DIR$/../thermo-pi-mqtt/.idea/thermo-pi-mqtt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/thermo-ui.iml" filepath="$PROJECT_DIR$/.idea/thermo-ui.iml" />
+    </modules>
+  </component>
+</project>

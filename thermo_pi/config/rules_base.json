@@ -1,0 +1,20 @@
+{
+  "A0000":{"attributes":{"objects":1,"problem_type":"2x2", "priority":90},
+         "transforms":[{"command":"Copy","params":{}}]
+  },
+  "A0100": {
+    "attributes": {
+      "objects": 1,
+      "problem_type": "2x2",
+      "priority": 95
+    },
+    "transforms": [
+      {
+        "command": "Reflect",
+        "params": {
+          "target_obj": "first"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,213 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<body>
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+
+  $( function() {
+    $( "#accordion-winter" ).accordion({
+      collapsible: true
+    });
+  } );
+  $( function() {
+    $( "#accordion-spring" ).accordion({
+      collapsible: true
+    });
+  } );
+  $( function() {
+    $( "#accordion-summer" ).accordion({
+      collapsible: true
+    });
+  } );
+  $( function() {
+    $( "#accordion-fall" ).accordion({
+      collapsible: true
+    });
+  } );
+
+  </script>
+
+<div class="container">
+    <h1>Schedule to go here</h1>
+</div>
+
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-winter">Winter</a></li>
+    <li><a href="#tabs-spring">Spring</a></li>
+    <li><a href="#tabs-summer">Summer</a></li>
+    <li><a href="#tabs-fall">Fall</a></li>
+  </ul>
+  <div id="tabs-winter">
+    <div id="accordion-winter">
+      <h3>Sunday</h3>
+      <div>
+        <div>
+            <label for="time-1">Time:</label>
+            <input id="time-1" name="time-1" value="05:30 AM">
+            <label for="temp-1">Temp:</label>
+            <input id="temp-1" name="temp-1" value="68">
+            <button class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Delete">
+                <span class="ui-icon ui-icon-trash"></span>
+            </button>
+            <button class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Edit">
+                <span class="ui-icon ui-icon-pencil"></span>
+            </button>
+        </div>
+        <div>
+            <label for="time-1">Time:</label>
+            <input id="time-1" name="time-1" value="05:30 AM">
+            <label for="temp-1">Temp:</label>
+            <input id="temp-1" name="temp-1" value="68">
+            <button class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Delete">
+                <span class="ui-icon ui-icon-trash"></span>
+            </button>
+            <button class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Edit">
+                <span class="ui-icon ui-icon-pencil"></span>
+            </button>
+        </div>
+        <div>
+            <label for="time-1">Time:</label>
+            <input id="time-1" name="time-1" value="--:-- ">
+            <label for="temp-1">Temp:</label>
+            <input id="temp-1" name="temp-1" value="  ">
+            <button class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Delete">
+                <span class="ui-icon ui-icon-plus"></span>
+            </button>
+
+        </div>
+      </div>
+      <h3>Monday</h3>
+      <div>
+        <p>sss</p>
+      </div>
+      <h3>Tuesday</h3>
+      <div>
+          <p>dd</p>
+      </div>
+      <h3>Wednesday</h3>
+      <div>
+        <p>sss</p>
+      </div>
+      <h3>Thursday</h3>
+      <div>
+        <p>sss</p>
+      </div>
+      <h3>Friday</h3>
+      <div>
+        <p>sss</p>
+      </div>
+      <h3>Saturday</h3>
+      <div>
+        <p>sss</p>
+      </div>
+    </div>
+  </div>
+  <div id="tabs-spring">
+    <div id="accordion-spring">
+      <h3>Sunday</h3>
+      <div>
+        <p>ss</p>
+      </div>
+      <h3>Monday</h3>
+      <div>
+        <p>sss</p>
+      </div>
+      <h3>Tuesday</h3>
+      <div>
+          <p>dd</p>
+      </div>
+      <h3>Wednesday</h3>
+      <div>
+        <p>sss</p>
+      </div>
+      <h3>Thursday</h3>
+      <div>
+        <p>sss</p>
+      </div>
+      <h3>Friday</h3>
+      <div>
+        <p>sss</p>
+      </div>
+      <h3>Saturday</h3>
+      <div>
+        <p>sss</p>
+      </div>
+    </div>
+
+  </div>
+  <div id="tabs-summer">
+    <div id="accordion-summer">
+      <h3>Sunday</h3>
+      <div>
+        <p>ss</p>
+      </div>
+      <h3>Monday</h3>
+      <div>
+        <p>sss</p>
+      </div>
+      <h3>Tuesday</h3>
+      <div>
+          <p>dd</p>
+      </div>
+      <h3>Wednesday</h3>
+      <div>
+        <p>sss</p>
+      </div>
+      <h3>Thursday</h3>
+      <div>
+        <p>sss</p>
+      </div>
+      <h3>Friday</h3>
+      <div>
+        <p>sss</p>
+      </div>
+      <h3>Saturday</h3>
+      <div>
+        <p>sss</p>
+      </div>
+    </div>
+  </div>
+  <div id="tabs-fall">
+    <div id="accordion-fall">
+      <h3>Sunday</h3>
+      <div>
+        <p>ss</p>
+      </div>
+      <h3>Monday</h3>
+      <div>
+        <p>sss</p>
+      </div>
+      <h3>Tuesday</h3>
+      <div>
+          <p>dd</p>
+      </div>
+      <h3>Wednesday</h3>
+      <div>
+        <p>sss</p>
+      </div>
+      <h3>Thursday</h3>
+      <div>
+        <p>sss</p>
+      </div>
+      <h3>Friday</h3>
+      <div>
+        <p>sss</p>
+      </div>
+      <h3>Saturday</h3>
+      <div>
+        <p>sss</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+{% endblock %}

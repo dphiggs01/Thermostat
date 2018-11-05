@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block body %}
+    <!-- meta http-equiv="refresh" content="5" -->
+
+    <div class="container" style="background-color:lavender;">
+        <div class="jumbotron">
+            <h1>Away Schedule</h1>
+
+            {% if error %}<p class=error><strong>Error:</strong> {{ error }}</p>{% endif %}
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class=flashes>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+        </div>
+        {% if session.logged_in %}
+
+            <div class="row">
+
+                <div class="col-xs-12" >
+                        <form method='post' action='/away' id='away'>
+                            {{ form.away() }}
+                            <button type="submit" class="btn btn-primary btn-sm btn-block">
+                                {% if ui_data.away %}
+                                      Set Scheduled to Home
+                &nbsp;&nbsp;&nbsp;             {% else %}
+                                      Set Schedule to Away
+                                {% endif %}
+                            </button>
+                        </form>
+
+                </div>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+{% endblock %}

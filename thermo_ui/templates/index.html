@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+{% block body %}
+    <!-- meta http-equiv="refresh" content="5" -->
+
+
+    <div class="container" style="background-color:lavender;">
+        <div class="jumbotron">
+            <h1>Downstairs Zone</h1>
+
+            {% if error %}<p class=error><strong>Error:</strong> {{ error }}</p>{% endif %}
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class=flashes>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+        </div>
+        {% if session.logged_in %}
+
+            <div class="row">
+                <div class="col-xs-12" style="background-color:lavender;"><h3>Indoor Temp</h3>
+                    <h1>{{ ui_data.temperature }} <span>&#8457;</span></h1></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12" style="background-color:lavender;"><h3>Target Temp</h3>
+                    <h1><span id="set_point_label">{{ ui_data.set_point }}</span> <span>&#8457;</span></h1></div>
+            </div>
+            {% if ui_data.away %}
+                <div class="row">
+                    <div class="col-xs-12" style="background-color:lavender;"><h3>On away schedule</h3></div>
+                </div>
+            {% else %}
+                <div class="row">
+                    <div class="col-xs-1" style="background-color:lavender;">
+                        <span class="pull-left" style="background-color:lavender;">
+
+                        </span>
+                    </div>
+                    <div class="col-xs-6" style="background-color:lavender;">
+                        <div id="slider">
+                            <div id="custom-handle" class="ui-slider-handle">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-5" >
+                            <form method='post' action='/adjust_setpoint' id='adjust_setpoint'>
+                                {{ form.set_point() }}
+                                {{ form.temperature() }}
+                                {{ form.battery() }}
+                                {{ form.time() }}
+                                <button type="submit" class="btn btn-primary btn-sm btn-block">Set Temp</button>
+                            </form>
+
+                    </div>
+                </div>
+            {% endif %}
+
+        {% endif %}
+        <div class="row">
+            <div class="col-xs-12" style="background-color:lavender;">
+                <p></p>
+                </br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12" style="background-color:lavender;">
+                <a class="weatherwidget-io" href="https://forecast7.com/en/42d37n71d95/rutland/?unit=us"
+                   data-label_1="RUTLAND" data-label_2="WEATHER" data-theme="original">RUTLAND WEATHER</a>
+                <script>
+                    !function (d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (!d.getElementById(id)) {
+                            js = d.createElement(s);
+                            js.id = id;
+                            js.src = "https://weatherwidget.io/js/widget.min.js";
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }
+                    }(document, "script", "weatherwidget-io-js");
+                </script>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
