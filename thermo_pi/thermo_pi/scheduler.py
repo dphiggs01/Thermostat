@@ -43,10 +43,10 @@ class Scheduler(metaclass=Singleton):
 
     def check_next_set_point(self):
         if self.is_away():
-            logging.debug("yup we are away")
+            #logging.debug("yup we are away")
             schedule = self._away_schedule
         else:
-            logging.debug("no we are not away")
+            #logging.debug("no we are not away")
             schedule = self._schedule
         time_tuple = datetime.datetime.today().timetuple()
         season = self.get_season()
@@ -62,11 +62,11 @@ class Scheduler(metaclass=Singleton):
                 set_point_key = key
 
         if set_point_key:
-            logging.debug("using tuple one [{}]".format(self.is_away()))
+            #logging.debug("using tuple one [{}]".format(self.is_away()))
             set_point = (season, week_day, set_point_key, schedule[season][week_day][set_point_key], self.is_away())
         else:
             # It's midnight so start new day with the last set_point temp from the prior day
-            logging.debug("using tuple two [{}]".format(self._active_set_point[4]))
+            #logging.debug("using tuple two [{}]".format(self._active_set_point[4]))
             set_point = (season, week_day, "00:00", self._active_set_point[3], self._active_set_point[4])
 
         if set_point != self._active_set_point:
@@ -159,5 +159,4 @@ if __name__ == "__main__":
     print(json.dumps(scheduler1.get_schedule(), indent=4, sort_keys=True))
     set_point_t2 = ('fall', 'Sun', '22:58', 90)
     scheduler1.del_set_point(set_point_t2)
-    print("XXXXXXXXXXXXXX")
     print(json.dumps(scheduler1.get_schedule(), indent=4, sort_keys=True))

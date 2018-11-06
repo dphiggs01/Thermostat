@@ -14,6 +14,7 @@ logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
 _global_call_shadow_update = True
+_global_current_temp = 68 # Arbitrary Temp to start
 
 def custom_shadow_callback_delta(payload, response_status, token):
     """
@@ -23,7 +24,7 @@ def custom_shadow_callback_delta(payload, response_status, token):
     :param token:
     :return:
     """
-    logging.debug("response_status={}, token={}".format(response_status, token))
+    logging.debug("In custom_shadow_callback_delta response_status={}, token={}".format(response_status, token))
     global _global_call_shadow_update
     _global_call_shadow_update = True
     payload_dict = json.loads(payload)
@@ -71,6 +72,7 @@ def custom_shadow_callback_update(payload, response_status, token):
     :param token:
     :return:
     """
+    logging.debug("In method custom_shadow_callback_update")
     if response_status == "timeout":
         logging.debug("Update request " + token + " time out!")
     if response_status == "accepted":
@@ -92,6 +94,7 @@ def custom_shadow_callback_delete(payload, response_status, token):
     :param token:
     :return:
     """
+    logging.debug("In method custom_shadow_callback_delete")
     if response_status == "timeout":
         logging.debug("Delete request " + token + " time out!")
     if response_status == "accepted":
@@ -164,10 +167,16 @@ def main():
         json_payload = {"state": {"reported": readings}}
         json_payload['state']['reported']['set_point'] = set_point[3]
         json_payload['state']['reported']['away'] = set_point[4]
-        logging.debug(json_payload)
+        logging.debug("json_payload={}".format(json_payload))
+
         global _global_call_shadow_update
-        if _global_call_shadow_update:
+        global _global_current_temp
+        last_reading_temp = round(readings['temperature'], 0)
+        logging.debug("_global_current_temp {} last_reading_temp".format(_global_current_temp,last_reading_temp))
+        if _global_call_shadow_update or _global_current_temp != last_reading_temp:
+            logging.debug("calling shadowUpdate")
             device_shadow_handler.shadowUpdate(json.dumps(json_payload), custom_shadow_callback_update, 5)
+            _global_current_temp = last_reading_temp
             _global_call_shadow_update = False
 
         time.sleep(1)
