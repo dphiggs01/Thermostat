@@ -172,7 +172,7 @@ def main():
         global _global_call_shadow_update
         global _global_current_temp
         last_reading_temp = round(readings['temperature'], 0)
-        logging.debug("_global_current_temp {} last_reading_temp".format(_global_current_temp,last_reading_temp))
+        logging.debug("_global_current_temp {} last_reading_temp {}".format(_global_current_temp,last_reading_temp))
         if _global_call_shadow_update or _global_current_temp != last_reading_temp:
             logging.debug("calling shadowUpdate")
             device_shadow_handler.shadowUpdate(json.dumps(json_payload), custom_shadow_callback_update, 5)
