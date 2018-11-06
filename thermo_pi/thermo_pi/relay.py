@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 import logging
+import sys
 
 logger = logging.getLogger()
 
@@ -20,6 +21,14 @@ class Relay:
         logging.debug("GPIO.LOW OFF")
 
 if __name__ == "__main__":
-    Relay.on()
-    time.sleep(2)
-    Relay.off()
+    print("sys argv")
+    on_off = "na"
+    if len(sys.argv)>1:
+        on_off = sys.argv[1]
+    if on_off == "on":
+        Relay.on()
+    elif on_off == "off":
+        Relay.off()
+    else:
+        print("pass on ot off on the commandline!")
+        
