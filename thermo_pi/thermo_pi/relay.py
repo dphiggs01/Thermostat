@@ -10,15 +10,15 @@ class Relay:
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(GPIO_PIN_18, GPIO.OUT)
     @staticmethod
-    def on():
+    def off():
         GPIO.output(Relay.GPIO_PIN_18, GPIO.HIGH)
-        logging.debug("GPIO.HIGH ON")
+        logging.debug("GPIO.HIGH Off")
 
 
     @staticmethod
-    def off():
+    def on():
         GPIO.output(Relay.GPIO_PIN_18, GPIO.LOW)
-        logging.debug("GPIO.LOW OFF")
+        logging.debug("GPIO.LOW On")
 
 if __name__ == "__main__":
     print("sys argv")
@@ -31,4 +31,4 @@ if __name__ == "__main__":
         Relay.off()
     else:
         print("pass on ot off on the commandline!")
-        
+
