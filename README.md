@@ -11,7 +11,7 @@ The Website communicates to the Pi through a restful services API using Lambada 
 
 The Pi in turn connects to a Texas Instruments Sensor for Room Temperature data using BLE (This sensor is currently the weak link in the system as the Battery life of the device is poor.) The Pi uses a simple relay to actuate the furnace on and off.
 
-The furnace run time stats (when the furnace was on or off) where being sent back to a Dynamo DB instance for further optimization of the schedule. This components is currently not available.
+The furnace runtime stats (i.e when the furnace was on or off) where being sent back to a Dynamo DB instance for further optimization of the schedule. (Note: This components is currently not available in the provided source.)
 
 A final component provides current weather data and displays this on the Website.
 
